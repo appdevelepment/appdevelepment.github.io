@@ -1,1 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addons List</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1e1e1e;
+            color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #00d1b2;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+            opacity: 0;
+            animation: fadeIn 1.2s ease-out forwards;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideUp 0.8s ease-out forwards;
+            animation-delay: calc(var(--i) * 0.1s);
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-title {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #00d1b2;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .card-description {
+            font-size: 16px;
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        .download-button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #00d1b2;
+            border: none;
+            border-radius: 25px;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s ease;
+            border-radius: 50%;
+        }
+
+        .download-button:hover {
+            background-color: #00bfa5;
+            transform: translateY(-5px);
+        }
+
+        .download-button:active {
+            transform: translateY(0px) scale(0.95);
+        }
+
+        .download-button:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .card-title {
+                font-size: 20px;
+            }
+            
+            .card-description {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Addons List</h1>
+    <div class="card-container">
+        <div class="card" style="--i: 1;">
+            <div class="card-title">Realism Addon</div>
+            <div class="card-description">Enhance realism with detailed physics and environment effects.</div>
+            <button class="download-button">Download</button>
+        </div>
+        <div class="card" style="--i: 2;">
+            <div class="card-title">ATC Addon</div>
+            <div class="card-description">Improved air traffic control systems for better flight communication.</div>
+            <button href="atc.html" class="download-button">Download</button>
+        </div>
+        <div class="card" style="--i: 3;">
+            <div class="card-title">Weather Addon</div>
+            <div class="card-description">Dynamic weather systems for real-time atmospheric conditions.</div>
+            <button href="weather.html" class="download-button">Download</button>
+        </div>
+        <div class="card" style="--i: 4;">
+            <div class="card-title">Addon Aircraft and Parts</div>
+            <div class="card-description">Get new aircraft models and parts to customize your flying experience.</div>
+            <button class="download-button">Download</button>
+        </div>
+        <div class="card" style="--i: 5;">
+            <div class="card-title">Guns/HMD Addon</div>
+            <div class="card-description">Add combat capabilities with guns and head-mounted displays.</div>
+            <button class="download-button">Download</button>
+        </div>
+        <div class="card" style="--i: 6;">
+            <div class="card-title">Multiplayer Addon</div>
+            <div class="card-description">Join other players in a seamless multiplayer environment.</div>
+            <button class="download-button">Download</button>
+        </div>
+    </div>
+</body>
+</html>
 
