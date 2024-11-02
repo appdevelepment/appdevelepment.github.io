@@ -1,89 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>GEOFS Add-ons & Tutorials</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ExtHang3r</title>
+  <link rel="shortcut icon" type="image/png" href="https://raw.githubusercontent.com/Blobby-Boi/ExtHang3r/main/favicon.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap">
+  <style>
+    body {
+      font-family: 'Varela Round', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background-color: #343a40;
+      color: #fff;
+      padding: 10px 20px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .logo {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 150px auto 0 auto;
+      padding: 20px;
+      text-align: center;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    select, button {
+      font-family: 'Varela Round', sans-serif;
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 4px;
+      width: 100%;
+    }
+    select {
+      border: 1px solid #ced4da;
+    }
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      color: #fff;
+      font-size: 24px;
+      user-select: none;
+      flex-direction: column;
+    }
+    .spinner {
+      border: 6px solid rgba(255, 255, 255, 0.3);
+      border-top: 6px solid #fff;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    #killExtensionText {
+      display: none;
+      margin-top: 20px;
+      color: #333;
+      font-size: 18px;
+      text-align: center;
+      background: #e9ecef;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    #killButton {
+      display: none;
+      background-color: #dc3545;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    #killButton:hover {
+      background-color: #9c1c28;
+    }
+    footer {
+      background-color: #343a40;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1>GEOFS Hub</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="addons.html">Add-ons</a></li>
-                <li><a href="moretutorials.html">Tutorials</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-text">
-            <h2>Enhance Your GEOFS Experience</h2>
-            <p>Explore the latest add-ons and tutorials to take your virtual flights to new heights.</p>
-            <a href="#addons" class="btn">Browse Add-ons</a>
-        </div>
-    </section>
+<header>
+  <img src="https://blobby-boi.github.io/BlobbypassXSS/favicon.png" alt="Logo" class="logo">
+  <h1>ExtHang3r</h1>
+</header>
 
-    <!-- Featured Add-ons Section -->
-    <section id="addons" class="featured">
-        <h3>Latest Add-ons</h3>
-        <div class="card-grid">
-            <!-- Add-on Card -->
-            <div class="card">
-               
-                <h4>NVB9ALT's Realsim Addon</h4>
-                <p>Improve your aircraft with better textures, and more than 33 more new features.</p>
-                <a href="/nvb9realsim.html" class="btn">Download</a>
-            </div>
+<div class="container">
+  <p>ExtHang3r is an exploit that allows ChromeOS users to kill managed extensions after the LTMEAT patch. It remains unpatched in all new ChromeOS versions as of September 2024.</p>
+  <label for="iframeSelect" id="labelForIframeSelect">Select extension:</label>
+  <select id="iframeSelect"></select>
+  <button onclick="warning();" id="hangButton">Hang Extension!</button>
+  <button id="killButton" onclick="openExtensionPopup();">Kill Extension!</button>
+</div>
 
-            <div class="card">
-                
-                <h4>Realistic Weather Add-on</h4>
-                <p>Experience real-time weather conditions during your flights. This addon is currently under development.</p>
-                <a href="#" class="btn">Download</a>
-            </div>
-        </div>
-    </section>
+<div class="overlay" id="overlay">
+  <div class="spinner"></div>
+  Hanging... (This will take about 1 minute)
+</div>
+<div id="killExtensionText"></div>
 
-    <!-- Featured Tutorials Section -->
-    <section id="tutorials" class="featured">
-        <h3>Popular Tutorials</h3>
-        <div class="card-grid">
-            <!-- Tutorial Card -->
-            <div class="card">
-                
-                <h4>How to Install Add-ons</h4>
-                <p>Step-by-step guide to installing add-ons for GEOFS.</p>
-                <a href="installationguide.html" class="btn">Read More</a>
-            </div>
+<footer>
+  <p>Made by <a href="https://github.com/Blobby-Boi/">Blobby Boi</a></p>
+</footer>
 
-            <div class="card">
-                
-                <h4>Beginner’s Guide to GEOFS</h4>
-                <p>Learn how to navigate GEOFS, from take-off to landing.</p>
-                <a href="beginnersguide.html" class="btn">Read More</a>
-            </div>
-        </div>
-    </section>
+<script>
+  async function checkExtensionURL(url) {
+    try {
+      const response = await fetch(url);
+      return response.ok;
+    } catch (error) {
+      return false;
+    }
+  }
 
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2024 GEOFS Hub | All Rights Reserved.</p>
-        <div class="social-links">
-            <a href="https://facebook.com">Facebook</a>
-            <a href="https://twiiter.com">Twitter</a>
-            <a href="https://youtube.com">YouTube</a>
-        </div>
-    </footer>
+  async function populateSelectOptions() {
+    const selectElement = document.getElementById("iframeSelect");
+    const extensions = {
+      "Securly": "chrome-extension://iheobagjkfklnlikgihanlhcddjoihkg/manifest.json"
+      "Securly (old)": "chrome-extension://ihekcfgojnmaeiepkpcloffpfbmfpoha/css/fontawesome-all.min.css"
+    };
+    for (const [name, url] of Object.entries(extensions)) {
+      const isAccessible = await checkExtensionURL(url);
+      if (isAccessible) {
+        const option = document.createElement("option");
+        option.value = url;
+        option.text = name;
+        selectElement.add(option);
+      }
+    }
+  }
 
-    <script src="app.js"></script>
+  function warning() {
+    document.getElementById("overlay").style.display = "flex";
+    setTimeout(() => {
+      document.getElementById("overlay").style.display = "none";
+      document.getElementById("killExtensionText").style.display = "block";
+      document.getElementById("killButton").style.display = "inline-block";
+    }, 60000);
+  }
+
+  function openExtensionPopup() {
+    const killExtensionText = document.getElementById("killExtensionText");
+    killExtensionText.innerHTML = "Extension Killed Successfully!";
+    killExtensionText.style.display = "block";
+  }
+
+  window.onload = populateSelectOptions;
+</script>
+
 </body>
 </html>
-
